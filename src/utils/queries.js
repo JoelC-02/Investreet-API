@@ -39,4 +39,25 @@ VALUES ('ABC','abc@yahoo.com',0,20,'No','0','No',1,2,0,0,0,0,0,'',0,0,0,0,0,0,0,
 
 export const dropMessagesTable = 'DROP TABLE clientdatatable';
 
-export const deleteMessagesTable = 'DELETE * FROM clientdatatable';
+export const deleteMessagesTable = 'DELETE FROM clientdatatable';
+
+export const createClientFinanceTable = `
+DROP TABLE IF EXISTS clientfinancetable;
+CREATE TABLE IF NOT EXISTS clientfinancetable (
+  id SERIAL PRIMARY KEY,
+  Email VARCHAR NOT NULL, 
+  Type VARCHAR NOT NULL,
+  FundName VARCHAR NOT NULL,
+  Holding NUMERIC,
+  Value NUMERIC
+  )
+  `;
+
+export const insertClientFinance = `
+INSERT INTO clientfinancetable(Email, Type, FundName, Holding, Value)
+VALUES ('abc@yahoo.com','Equity','Aditya Fund',0,0)
+`;
+
+export const dropClientFinanceTable = 'DROP TABLE clientfinancetable';
+
+export const deleteClientFinanceTable = 'DELETE FROM clientfinancetable';
